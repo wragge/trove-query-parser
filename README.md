@@ -1,8 +1,6 @@
 # Trove query parser
-> Convert a query from the Trove web interface into a set of parameters that can be used with the Trove API.  
+> Convert a query from the Trove web interface into a set of parameters that can be used with the Trove API.
 
-
-## Install
 
 `pip install git+https://github.com/wragge/trove_query_parser.git`
 
@@ -31,3 +29,7 @@ parse_query('https://trove.nla.gov.au/search/category/newspapers?keyword=wragge&
 
 
 See the [documentation](https://wragge.github.io/trove_query_parser/) for a more detailed example.
+
+## Limitations
+
+Currently this only works with the 'Newspapers & Gazettes' category. Other categories may be added in time.
