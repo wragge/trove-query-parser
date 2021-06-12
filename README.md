@@ -4,7 +4,7 @@
 
 ## Install
 
-`pip install your_project_name`
+`pip install git+https://github.com/wragge/trove-query-parser.git`
 
 ## How to use
 
