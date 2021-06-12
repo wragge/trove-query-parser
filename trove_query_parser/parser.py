@@ -3,6 +3,7 @@
 __all__ = ['format_date', 'parse_query']
 
 # Cell
+
 from urllib.parse import urlparse, parse_qsl, parse_qs
 import requests
 import arrow

@@ -46,7 +46,7 @@ nb_path: "00_parser.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="format_date" class="doc_header"><code>format_date</code><a href="https://github.com/wragge/trove_query_parser/tree/master/trove_query_parser/parser.py#L10" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>format_date</code>(<strong><code>date</code></strong>, <strong><code>start</code></strong>=<em><code>False</code></em>)</p>
+<h4 id="format_date" class="doc_header"><code>format_date</code><a href="https://github.com/wragge/trove_query_parser/tree/master/trove_query_parser/parser.py#L11" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>format_date</code>(<strong><code>date</code></strong>, <strong><code>start</code></strong>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>The web interface uses YYYY-MM-DD dates, but the API expects YYYY-MM-DDT00:00:00Z. Reformat dates accordingly.</p>
 <p>Also the start date in an API query needs to be set to the day before you want. So if this is a start date, take it back in time by a day.</p>
@@ -72,7 +72,7 @@ nb_path: "00_parser.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="parse_query" class="doc_header"><code>parse_query</code><a href="https://github.com/wragge/trove_query_parser/tree/master/trove_query_parser/parser.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_query</code>(<strong><code>query</code></strong>)</p>
+<h4 id="parse_query" class="doc_header"><code>parse_query</code><a href="https://github.com/wragge/trove_query_parser/tree/master/trove_query_parser/parser.py#L24" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_query</code>(<strong><code>query</code></strong>)</p>
 </blockquote>
 <p>Converts the parameters of a search using the Trove web interface into a form the API will understand.</p>
 <p>Parameters:</p>
