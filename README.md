@@ -30,4 +30,4 @@ parse_query('https://trove.nla.gov.au/search/category/newspapers?keyword=wragge&
 
 
 
-See the documentation for a more detailed example.
+See the [documentation](https://wragge.github.io/trove_query_parser/) for a more detailed example.
