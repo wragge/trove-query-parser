@@ -2,6 +2,8 @@
 > Convert a query from the Trove web interface into a set of parameters that can be used with the Trove API.
 
 
+## Installation
+
 `pip install git+https://github.com/wragge/trove_query_parser.git`
 
 ## How to use
