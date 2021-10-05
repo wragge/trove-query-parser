@@ -4,7 +4,7 @@
 
 ## Installation
 
-`pip install trove_query_parser`
+`pip install trove-query-parser`
 
 ## How to use
 
