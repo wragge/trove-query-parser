@@ -11,7 +11,7 @@ jobs:
         architecture: 'x64'
     - name: Install the library
       run: |
-        pip install nbdev1 jupyter
+        pip install git+https://github.com/fastai/nbdev1.git jupyter
         pip install -e .
     - name: Read all notebooks
       run: |
