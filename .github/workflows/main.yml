@@ -31,3 +31,5 @@ jobs:
     - name: Run tests
       run: |
         nbdev_test_nbs
+      env:
+        TROVE_API_KEY: ${{ secrets.TROVE_API_KEY }} 
