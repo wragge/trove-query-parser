@@ -4,6 +4,7 @@ __all__ = ['format_date', 'parse_query']
 
 # Cell
 
+import os
 from urllib.parse import urlparse, parse_qsl, parse_qs
 import requests
 import arrow
@@ -21,12 +22,13 @@ def format_date(date, start=False):
         date = '{}Z'.format(date_obj.format('YYYY-MM-DDT00:00:00'))
     return date
 
-def parse_query(query):
+def parse_query(query, api_version=2):
     '''
     Converts the parameters of a search using the Trove web interface into a form the API will understand.
 
     Parameters:
     * `query` – the url of a search in the Trove newspapers & gazettes category
+    * `api_version` – Trove API version (default is 2)
 
     Returns:
     * a dict containing the parameters (multiple values will be in a list)
@@ -85,10 +87,13 @@ def parse_query(query):
             elif key == 'keyword.any':
                 keywords.append('({})'.format(' OR '.join(value.split())))
             elif key in ['l-ArtType', 'l-advArtType', 'l-artType']:
-                if value == 'newspapers':
-                    new_params['zone'] = 'newspaper'
-                elif value == 'gazette':
-                    new_params['zone'] = 'gazette'
+                if api_version == 2:
+                    if value == 'newspapers':
+                        new_params['zone'] = 'newspaper'
+                    elif value == 'gazette':
+                        new_params['zone'] = 'gazette'
+                elif api_version == 3:
+                    new_params['l-artType'] = value
         if keywords:
             if 'q' in new_params:
                 new_params['q'] += ' AND {}'.format(' AND '.join(keywords))
@@ -106,7 +111,9 @@ def parse_query(query):
                 new_params['q'] = date_query
         if 'q' not in new_params:
             new_params['q'] = ' '
-        if 'zone' not in new_params:
+        if api_version == 2 and 'zone' not in new_params:
             new_params['zone'] = 'newspaper,gazette'
+        if api_version == 3 and 'category' not in new_params:
+            new_params['category'] = 'newspaper'
     # return '{}?{}'.format('https://api.trove.nla.gov.au/v2/result', urlencode(new_params, doseq=True))
     return new_params

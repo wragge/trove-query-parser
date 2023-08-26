@@ -10,23 +10,26 @@
 
 * Construct a search in the Trove 'Newspapers and Gazettes' category.
 * Copy the search url.
-* Feed the url to the `parse_query` function.
+* Feed the url to the `parse_query` function
+
+The second parameter to `parse_query` is the Trove API version number. The default is `2` for backwards compatibility.
 
 ```python
 from trove_query_parser.parser import parse_query
 
-parse_query('https://trove.nla.gov.au/search/category/newspapers?keyword=wragge&l-artType=newspapers&l-state=Queensland&l-category=Article&l-illustrationType=Cartoon')
+parse_query('https://trove.nla.gov.au/search/category/newspapers?keyword=wragge&l-artType=newspapers&l-state=Queensland&l-category=Article&l-illustrationType=Cartoon', 3)
 ```
 
 
 
 
     {'q': 'wragge',
-     'zone': 'newspaper',
+     'l-artType': 'newspapers',
      'l-state': ['Queensland'],
      'l-category': ['Article'],
      'l-illustrated': 'true',
-     'l-illtype': ['Cartoon']}
+     'l-illtype': ['Cartoon'],
+     'category': 'newspaper'}
 
 
 
