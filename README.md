@@ -28,7 +28,7 @@ parse_query('https://trove.nla.gov.au/search/category/newspapers?keyword=wragge&
      'l-state': ['Queensland'],
      'l-category': ['Article'],
      'l-illustrated': 'true',
-     'l-illtype': ['Cartoon'],
+     'l-illustrationType': ['Cartoon'],
      'category': 'newspaper'}
 
 

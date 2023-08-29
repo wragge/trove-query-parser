@@ -39,7 +39,7 @@ def parse_query(query, api_version=2):
         new_params = parse_qs(parsed_url.query)
     else:
         # These params can be accepted as is.
-        safe = ['l-category', 'l-title', 'l-decade', 'l-year', 'l-month', 'l-state', 'l-word', 'include']
+        safe = ['l-category', 'l-title', 'l-decade', 'l-year', 'l-month', 'l-state', 'include']
         new_params = {}
         dates = {}
         keywords = []
@@ -51,8 +51,11 @@ def parse_query(query, api_version=2):
                     new_params[key].append(value)
                 except KeyError:
                     new_params[key] = [value]
-            elif key == 'l-advWord':
-                new_params['l-word'] = value
+            elif key in ['l-word', 'l-advWord']:
+                if api_version == 2:
+                    new_params['l-word'] = value
+                elif api_version == 3:
+                    new_params['l-wordCount'] = value
             elif key == 'l-advstate':
                 try:
                     new_params['l-state'].append(value)
@@ -70,10 +73,10 @@ def parse_query(query, api_version=2):
                     new_params['l-title'] = [value]
             elif key in ['l-illustrationType', 'l-advIllustrationType']:
                 new_params['l-illustrated'] = 'true'
-                try:
-                    new_params['l-illtype'].append(value)
-                except KeyError:
+                if api_version == 2:
                     new_params['l-illtype'] = [value]
+                elif api_version == 3:
+                    new_params['l-illustrationType'] = [value]
             elif key == 'date.from':
                 dates['from'] = value
             elif key == 'date.to':
